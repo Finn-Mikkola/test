@@ -1,9 +1,3 @@
----
-runme:
-  id: 01HP2GFKW918YRHV8BZ3X3K7M1
-  version: v2.2
----
-
 ![cover_page](./static/dataset-cover.jpg)
 # Patient_AWS_pipe
 
