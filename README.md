@@ -7,4 +7,4 @@ by: Finn Mikkola, Jason Fearnall & Max Ross
 
 
 [Kaggle Data Source](https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset)
-![data_description](./static/dataset_desc.png)
+
