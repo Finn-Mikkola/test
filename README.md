@@ -1,7 +1,7 @@
 ![cover_page](./static/dataset-cover.jpg)
 # Patient_AWS_pipe
 
-#### Designing an ETL pipeline in AWS using S3, RDS, Lambda (Python), EC2 and Kaggle data
+### Designing an ETL pipeline in AWS using S3, RDS, Lambda (Python), EC2 and Kaggle data
 
 by: Finn Mikkola, Jason Fearnall & Max Ross
 
