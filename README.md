@@ -4,7 +4,7 @@
 
 ### Designing an ETL pipeline in AWS using S3, RDS, Lambda (Python), EC2 and Kaggle data
 
-by: Finn Mikkola, Jason Fearnall & Max Ross
+by: [Finn Mikkola](https://github.com/ChungoMungus), [Jason Fearnall](https://github.com/Fearnall-Jason) & [Max Ross](https://github.com/ImMaxRoss)
 
 [Kaggle Data Source](https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset)
 
