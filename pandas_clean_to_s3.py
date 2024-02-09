@@ -15,7 +15,7 @@ def lambda_handler(event, context):
         s3_file_name = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'], encoding='utf=8')
         resp = s3.get_object(Bucket=bucket_name, Key=s3_file_name)
 
-        df = pd.read_csv(resp['Body'], sep=',')
+        df = pd.read_csv(resp['Body'], sep=';')
         df.dropna(inplace=True)
         df.drop_duplicates(inplace=True)
         df['age_in_years'] = round(df['age'] / 365)

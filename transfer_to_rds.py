@@ -25,15 +25,14 @@ def lambda_handler(event, context):
     # Get the S3 object info from the event
     bucket_name = event['Records'][0]['s3']['bucket']['name']
     file_key = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'], encoding='utf=8')
-    
     print('Getting object')
     
     # Get the CSV file from S3
     s3 = boto3.client('s3')
     print('boto boto')
-    #####
+    
+    
     csv_file_object = s3.get_object(Bucket=bucket_name, Key=file_key)
-    #######
     print('object recieved')
     
     lines = csv_file_object['Body'].read().decode('utf-8').splitlines()
@@ -44,7 +43,6 @@ def lambda_handler(event, context):
     
     # Extract headers from the CSV
     headers = next(csv_data)
-    
     print('extracting headers')
     
     with connection.cursor() as cursor:
@@ -58,16 +56,12 @@ def lambda_handler(event, context):
             alco INT, active INT, cardio INT, age_in_years INT
         )"""
         cursor.execute(create_table_sql)
-        
         print('table created')
         
         # Prepare the INSERT statement
-        # insert_stmt = f"INSERT INTO Patients ({', '.join(headers)}) VALUES ({', '.join(['%s'] * len(headers))})"
         insert_stmt = (
-    f"INSERT INTO Patients ({', '.join(headers)}) "
-    f"VALUES ({', '.join(['%s'] * len(headers))})"
-)
-        
+            f"INSERT INTO Patients ({', '.join(headers)}) "
+            f"VALUES ({', '.join(['%s'] * len(headers))})")
         print('inserting values')
         
         # Execute the INSERT statement for each row in the CSV
@@ -82,6 +76,7 @@ def lambda_handler(event, context):
     
     print('done')
     
+    # return for testing and logging
     return {
         'statusCode': 200,
         'body': f'Successfully inserted CSV data from {file_key}'
